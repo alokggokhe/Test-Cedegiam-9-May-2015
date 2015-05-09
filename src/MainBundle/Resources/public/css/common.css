@@ -1,0 +1,61 @@
+.button-text{
+	white-space: normal !important;
+	word-wrap: break-word;
+	text-align: center;
+	font-weight: bold;
+}   
+
+/* Button */
+.common-button, .common-button:hover {
+	background-color: #46b29b !important;
+	font-size: 14pt !important;
+	font-family: "Helvetica Neue", "Helvetica Regular";
+	text-transform: uppercase;
+	border: #46b29b !important;
+	cursor: pointer;
+}
+.delete-button{
+	background-color: #ca2222 !important;
+	font-size: 14pt !important;
+	font-family: "Helvetica Neue","Helvetica Regular";
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.save-button{
+	background-color: #46b29b !important;
+	font-size: 14pt !important;
+	font-family: "Helvetica Neue","Helvetica Regular";
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.close-button{
+	background-color: #46b29b !important;
+	font-size: 14pt !important;
+	font-family: "Helvetica Neue","Helvetica Regular";
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+.btn{
+	text-transform: uppercase;
+}
+
+/* Padding */
+.padding-top-0px{
+	padding-top: 0 !important;
+}
+.padding-top-10px{
+	padding-top: 10px !important;
+}
+.padding-bottom-10px{
+	padding-bottom: 10px !important;
+}
+
+/* Popup */
+.modal-title {
+	font-weight: bold;
+}

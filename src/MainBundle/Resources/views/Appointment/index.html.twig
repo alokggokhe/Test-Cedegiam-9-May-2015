@@ -1,0 +1,29 @@
+{% extends 'MainBundle::layout.html.twig' %}
+
+{% block title %}
+Schedule Cancel | UCB Dandelion
+{% endblock %}
+
+{% block modulestylesheets %}
+<link href="{{ asset('bundles/main/css/schedule.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+	<section id="panel">
+		<div class="panel">
+			<div class="panel-first-part">
+				<h1 class="panel-title-form title-confirm"><b>Thank you</b></h1>
+			</div>
+			<div class="panel-second-part">
+				<h2><b>Confirmation for your session</b></h2>
+				<p>Thanks for your reply.</p>
+				<p></p>
+				<div class="row button-group text-center">
+					<a href="{{ path('homepage') }}" title='No'>
+						<button type="button" class="btn btn-default pull-right" title='Ok'>Ok</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
