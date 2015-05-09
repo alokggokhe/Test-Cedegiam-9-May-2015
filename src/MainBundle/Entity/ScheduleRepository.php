@@ -4,7 +4,6 @@ namespace MainBundle\Entity;
 
 
 use Doctrine\ORM\EntityRepository;
-use MainBundle\Entity\ScheduleStatus;
 
 class ScheduleRepository extends EntityRepository
 {

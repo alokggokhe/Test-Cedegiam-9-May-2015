@@ -5,11 +5,9 @@ namespace MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Filesystem\Filesystem;
 use MainBundle\Entity\Schedule;
-use MainBundle\Entity\ScheduleStatus;
 use Cegedim\Bundle\OwaCasBundle\Security\User\OwaUser;
 
 class ScheduleController extends Controller
@@ -145,36 +143,28 @@ class ScheduleController extends Controller
 	public function statusChangeAction($action, $id)
 	{
 		if ($id) {
-
 			$status_id 			= 0;
 			$redirect_action 	= ''; 
 			$ucb_patient_action = $this->container->getParameter('ucb_patient_login');
 			$doctrine = $this->getDoctrine()->getManager();
 			$schedule = $doctrine->getRepository('MainBundle:Schedule')->find($id);
-
 			if($action == 'done') {
-				// change status to 'Done'
 				$status_id 			= 4;
 				$redirect_action 	= 'upcoming';
 			} else if($action == 'cancel') {
-				// change status to 'Cancelled'	
 				$status_id 			= 3;
 				$redirect_action 	= 'get';
 			}
-			
 			$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);
 			$schedule->setScheduleStatus($schedulestatus);
 			$doctrine->persist($schedule);
 			$doctrine->flush();
-
 			if($action == 'cancel') {
-				// send cancelled mail
 				$this->sendCancelledMail($schedule);
 				return $this->redirect($this->generateUrl('schedule_list', array('action' => $redirect_action)));
 			} else {
 				return $this->redirect($ucb_patient_action);
 			}
-	
 		} else {
 			return $this->redirect($this->generateUrl('schedule_list', array('action' => 'get')));
 		}
@@ -258,7 +248,6 @@ class ScheduleController extends Controller
 
 		// modify scheduledatetime date to previous datetime
 		$datetime->modify('-1 hours');
-		//file_put_contents($file_path, $calstr);
 		return $file_path;
 	}
 }
